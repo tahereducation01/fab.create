@@ -1,0 +1,1340 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fab Creates | Fatema Abedin - Handcrafted Art & Portraits</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "story-pink": "#E8B4BC",
+            "story-lavender": "#D8C3E8",
+            "story-cream": "#FFF5EB",
+            "story-gold": "#E6B87D",
+            "story-dark": "#6D5D6B",
+            "story-rose": "#CC8B8B",
+            "story-light": "#FFF9F5",
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            serif: ["Cormorant Garamond", "serif"],
+            script: ["Dancing Script", "cursive"],
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'fade-in-up': 'fadeInUp 0.8s ease-out',
+            'pulse-gentle': 'pulseGentle 4s infinite',
+            'slide-in-left': 'slideInLeft 0.7s ease-out',
+            'slide-in-right': 'slideInRight 0.7s ease-out',
+            'bounce-gentle': 'bounceGentle 2s infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-15px)' },
+            },
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            pulseGentle: {
+              '0%, 100%': { opacity: '1' },
+              '50%': { opacity: '0.8' },
+            },
+            slideInLeft: {
+              '0%': { opacity: '0', transform: 'translateX(-30px)' },
+              '100%': { opacity: '1', transform: 'translateX(0)' },
+            },
+            slideInRight: {
+              '0%': { opacity: '0', transform: 'translateX(30px)' },
+              '100%': { opacity: '1', transform: 'translateX(0)' },
+            },
+            bounceGentle: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-8px)' },
+            },
+          }
+        },
+      },
+    };
+  </script>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@400;700&family=Cormorant+Garamond:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+  <style>
+    :root {
+      --primary: #e8b4bc;
+      --secondary: #d8c3e8;
+      --accent: #cc8b8b;
+      --light: #fff5eb;
+      --dark: #6d5d6b;
+      --gold: #e6b87d;
+      --texture: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%236D5D6B" opacity="0.03"/><path d="M0,50 Q25,40 50,50 T100,50" stroke="%23E8B4BC" stroke-width="0.3" opacity="0.1"/><path d="M0,30 Q50,20 100,30" stroke="%23D8C3E8" stroke-width="0.3" opacity="0.1"/></svg>');
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      overflow-x: hidden;
+      color: #5a4a42;
+      background-color: #fff9f5;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(232, 180, 188, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(216, 195, 232, 0.05) 0%, transparent 20%),
+        var(--texture);
+      background-attachment: fixed;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Enhanced Typography */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--dark);
+    }
+
+    h6,
+    .text-uppercase {
+      font-family: "Inter", sans-serif;
+      letter-spacing: 2px;
+      font-weight: 500;
+      font-size: 0.85rem;
+    }
+
+    .font-dancing {
+      font-family: "Dancing Script", cursive;
+      line-height: 1.4;
+    }
+
+    .lead {
+      font-size: 1.25rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: #6d5d6b;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .text-gradient {
+      background: linear-gradient(90deg,
+          var(--primary),
+          var(--gold),
+          var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% auto;
+      display: inline-block;
+    }
+
+    /* Layout & Spacing */
+    .section {
+      position: relative;
+      padding: 120px 0;
+      overflow: hidden;
+    }
+
+    .section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 1px;
+      background: linear-gradient(90deg,
+          transparent,
+          rgba(232, 180, 188, 0.4),
+          transparent);
+    }
+
+    /* Enhanced Hero Section */
+    .hero-section {
+      height: 100vh;
+      min-height: 800px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg,
+    .hero-bg-layer,
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-bg-layer {
+      background-size: cover;
+      background-position: center;
+      will-change: transform;
+    }
+
+    .bg-layer-1 {
+      background-image: url("https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80");
+      z-index: -5;
+    }
+
+    .bg-layer-2 {
+      background-image: url("https://images.unsplash.com/photo-1520223297779-95bbd7c9b4e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80");
+      z-index: -4;
+      opacity: 0.7;
+      mix-blend-mode: overlay;
+    }
+
+    .hero-overlay {
+      background: linear-gradient(135deg,
+          rgba(109, 93, 107, 0.85) 0%,
+          rgba(232, 180, 188, 0.6) 100%);
+      z-index: -1;
+      backdrop-filter: blur(2px);
+    }
+
+    .hero-title {
+      font-size: 5.5rem;
+      line-height: 1;
+      margin-bottom: 2rem;
+      letter-spacing: -2px;
+    }
+
+    /* Floating Elements */
+    .floating-element {
+      position: absolute;
+      z-index: -1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232, 180, 188, 0.2) 0%, transparent 70%);
+    }
+
+    /* Enhanced Gallery Styles */
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      height: 400px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.5s ease;
+      background-color: var(--light);
+      border: 1px solid rgba(232, 180, 188, 0.3);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+      opacity: 1 !important;
+      mix-blend-mode: normal !important;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 40px rgba(232, 180, 188, 0.25);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    /* Enhanced Cards */
+    .gift-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(109, 93, 107, 0.08);
+      transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+      position: relative;
+      height: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .gift-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 30px 60px rgba(232, 180, 188, 0.3);
+    }
+
+    .gift-img-container {
+      height: 320px;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .gift-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s ease;
+    }
+
+    .gift-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--dark);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      z-index: 2;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(5px);
+    }
+
+    /* Enhanced Navbar */
+    .navbar {
+      padding: 25px 0;
+      transition: all 0.4s ease;
+      background-color: rgba(109, 93, 107, 0.95) !important;
+      backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar.scrolled {
+      padding: 15px 0;
+      background-color: rgba(109, 93, 107, 0.98) !important;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 700;
+      font-size: 2rem;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 400;
+      margin: 0 5px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Enhanced Buttons */
+    .btn-story {
+      background: linear-gradient(135deg,
+          var(--primary) 0%,
+          var(--accent) 100%);
+      color: white;
+      padding: 16px 36px;
+      border-radius: 50px;
+      border: none;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 500;
+      box-shadow: 0 10px 25px rgba(232, 180, 188, 0.4);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn-story::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg,
+          var(--accent) 0%,
+          var(--primary) 100%);
+      transition: all 0.4s ease;
+      z-index: -1;
+    }
+
+    .btn-story:hover::before {
+      left: 0;
+    }
+
+    .btn-story:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(232, 180, 188, 0.6);
+      color: white;
+    }
+
+    /* Enhanced Forms */
+    .form-control,
+    .form-select {
+      border: none;
+      border-bottom: 2px solid #eee;
+      border-radius: 0;
+      background: transparent;
+      padding: 15px 0;
+      font-family: "Inter", sans-serif;
+      font-size: 1.1rem;
+      color: var(--dark);
+      resize: none;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      box-shadow: none;
+      border-bottom-color: var(--primary);
+      background: transparent;
+    }
+
+    .form-floating>label {
+      padding-left: 0;
+      color: #999;
+      transition: all 0.3s ease;
+    }
+
+    /* New Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -200% center;
+      }
+
+      100% {
+        background-position: 200% center;
+      }
+    }
+
+    @keyframes pulseGentle {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.8;
+      }
+    }
+
+    .shimmer-text {
+      background: linear-gradient(90deg, var(--primary), var(--gold), var(--accent), var(--primary));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shimmer 3s infinite linear;
+    }
+
+    /* Testimonial Section */
+    .testimonial-card {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      height: 100%;
+      border-top: 4px solid var(--primary);
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(232, 180, 188, 0.2);
+    }
+
+    .testimonial-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary);
+    }
+
+    /* Stats Section */
+    .stat-card {
+      text-align: center;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-10px);
+      background: white;
+      box-shadow: 0 20px 40px rgba(232, 180, 188, 0.2);
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    /* Loader */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff9f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 99999;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-spinner {
+      width: 60px;
+      height: 60px;
+      border: 3px solid rgba(230, 184, 125, 0.2);
+      border-top: 3px solid var(--gold);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Animation Classes */
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .animate-slide-in-left {
+      animation: slideInLeft 0.7s ease-out forwards;
+    }
+
+    .animate-slide-in-right {
+      animation: slideInRight 0.7s ease-out forwards;
+    }
+
+    .animate-pulse-gentle {
+      animation: pulseGentle 4s infinite;
+    }
+
+    .animate-bounce-gentle {
+      animation: bounceGentle 2s infinite;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3.5rem;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .gift-img-container {
+        height: 250px;
+      }
+
+      .gallery-item {
+        height: 300px;
+      }
+
+      .floating-element {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="loader">
+    <div class="loader-spinner"></div>
+  </div>
+
+  <!-- Floating Background Elements -->
+  <div class="floating-element floating-1"
+    style="width: 200px; height: 200px; top: 10%; left: 5%; animation: float 8s ease-in-out infinite; animation-delay: 0s;">
+  </div>
+  <div class="floating-element floating-2"
+    style="width: 150px; height: 150px; top: 60%; right: 10%; animation: float 6s ease-in-out infinite; animation-delay: 1s; background: radial-gradient(circle, rgba(216, 195, 232, 0.2) 0%, transparent 70%);">
+  </div>
+  <div class="floating-element floating-3"
+    style="width: 100px; height: 100px; bottom: 20%; left: 15%; animation: float 10s ease-in-out infinite; animation-delay: 2s; background: radial-gradient(circle, rgba(204, 139, 139, 0.2) 0%, transparent 70%);">
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="#home">
+        Fab<span class="text-story-gold font-serif">Creates_</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">Artist</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#creations">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#gallery">Gallery</a>
+          </li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-story py-2 px-4" href="https://instagram.com/fab_creates_" target="_blank"><i
+                class="fab fa-instagram me-2"></i> DM to Order</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero-section" id="home">
+    <div class="hero-bg">
+      <div class="hero-bg-layer bg-layer-1" id="bgLayer1"></div>
+      <div class="hero-bg-layer bg-layer-2" id="bgLayer2"></div>
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="row align-items-center">
+        <div class="col-lg-10 mx-auto text-center text-white">
+          <h6 class="text-uppercase text-story-gold mb-4 letter-spacing-2">
+            Vadodara <span class="mx-2">•</span> Artist <span class="mx-2">•</span> Handcrafted With Love
+          </h6>
+          <h1 class="hero-title mb-4">
+            <span class="font-dancing fw-light text-story-pink" style="font-size: 1.2em">I Paint, Write</span>
+            <br />
+            <span class="shimmer-text font-dancing fw-bold" style="font-size: 1.1em">& Create Magic ✨</span>
+          </h1>
+          <p class="lead text-white opacity-90 mb-5 mx-auto font-serif fst-italic" style="max-width: 600px">
+            "Every piece tells a story. Crafted passionately with love, patience, and attention to detail. 💖"
+          </p>
+          <div class="d-flex flex-wrap justify-content-center gap-4 mt-2">
+            <button class="btn btn-story btn-lg explore-btn">
+              Explore My Creations <i class="fas fa-arrow-down ms-2 animate-bounce-gentle"></i>
+            </button>
+            <a href="https://instagram.com/fab_creates_" target="_blank"
+              class="btn btn-outline-light rounded-pill px-5 py-3 text-uppercase"
+              style="letter-spacing: 1px; font-size: 0.9rem"><i class="fab fa-instagram me-2"></i> @fab_creates_</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Stats Section -->
+  <section class="section bg-story-light py-5" id="stats">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-3 col-6">
+          <div class="stat-card animate-fade-in-up" style="animation-delay: 0.1s">
+            <div class="stat-number" data-count="150">150+</div>
+            <h6 class="text-uppercase text-story-dark fw-bold">Artworks</h6>
+            <p class="small text-muted mb-0">Handcrafted with love</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-card animate-fade-in-up" style="animation-delay: 0.2s">
+            <div class="stat-number" data-count="50">50+</div>
+            <h6 class="text-uppercase text-story-dark fw-bold">Happy Clients</h6>
+            <p class="small text-muted mb-0">Across India</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-card animate-fade-in-up" style="animation-delay: 0.3s">
+            <div class="stat-number" data-count="3">3+</div>
+            <h6 class="text-uppercase text-story-dark fw-bold">Years</h6>
+            <p class="small text-muted mb-0">Of creating art</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-card animate-fade-in-up" style="animation-delay: 0.4s">
+            <div class="stat-number" data-count="100">100%</div>
+            <h6 class="text-uppercase text-story-dark fw-bold">Handmade</h6>
+            <p class="small text-muted mb-0">No templates used</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white" id="about">
+    <div class="container">
+      <div class="row align-items-center gx-lg-5">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <div class="position-relative p-3 animate-slide-in-left">
+            <div class="position-absolute top-0 start-0 w-100 h-100 border border-story-pink opacity-25 rounded-4"
+              style="transform: translate(-15px, -15px)"></div>
+            <img
+              src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1471&q=80"
+              alt="Fatema Abedin Art" class="img-fluid rounded-4 shadow-lg position-relative z-1 animate-pulse-gentle" />
+          </div>
+        </div>
+        <div class="col-lg-6 animate-slide-in-right">
+          <h6 class="text-story-pink text-uppercase mb-3">The Artist Behind The Art</h6>
+          <h2 class="display-5 mb-4">
+            Hello, I'm Fatema <span class="text-story-rose">❤️</span>
+          </h2>
+          <p class="mb-4 text-muted lead">
+            Based in Vadodara, I'm an artist who paints, writes, and creates from the heart. Each piece I make carries a
+            piece of my soul.
+          </p>
+          <p class="mb-4 text-muted">
+            My journey began 3 years ago with a simple sketchbook and a dream. Today, I blend traditional artistry with
+            modern personalization to create unique pieces that tell stories. Whether it's capturing a likeness in a
+            portrait or preserving memories in a scrapbook, everything I make is crafted with passion and attention to
+            detail.
+          </p>
+
+          <div class="row mt-5 gy-4">
+            <div class="col-md-6">
+              <div class="d-flex align-items-center">
+                <i class="fas fa-paint-brush text-story-gold fa-lg me-3"></i>
+                <div>
+                  <h5 class="h6 text-uppercase fw-bold mb-1">Handmade</h5>
+                  <p class="small text-muted mb-0">100% Handcrafted Art</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="d-flex align-items-center">
+                <i class="fas fa-truck text-story-gold fa-lg me-3"></i>
+                <div>
+                  <h5 class="h6 text-uppercase fw-bold mb-1">Pan India</h5>
+                  <p class="small text-muted mb-0">Delivery across India</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="d-flex align-items-center">
+                <i class="fas fa-heart text-story-gold fa-lg me-3"></i>
+                <div>
+                  <h5 class="h6 text-uppercase fw-bold mb-1">Custom Made</h5>
+                  <p class="small text-muted mb-0">Tailored to your story</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="d-flex align-items-center">
+                <i class="fas fa-gift text-story-gold fa-lg me-3"></i>
+                <div>
+                  <h5 class="h6 text-uppercase fw-bold mb-1">Gift Ready</h5>
+                  <p class="small text-muted mb-0">Perfectly packaged</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Testimonials Section -->
+  <section class="section bg-story-light" id="testimonials">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+          <h6 class="text-story-pink text-uppercase mb-3">Love from Clients</h6>
+          <h2 class="display-4 mb-4">What People <span class="text-gradient">Say</span></h2>
+          <p class="lead mb-5">Don't just take my word for it - hear from those who've received my creations.</p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="testimonial-card animate-fade-in-up" style="animation-delay: 0.1s">
+            <div class="d-flex align-items-center mb-4">
+              <img
+                src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                alt="Client" class="testimonial-avatar me-3">
+              <div>
+                <h5 class="mb-0">Priya Sharma</h5>
+                <p class="small text-muted mb-0">Mumbai</p>
+              </div>
+            </div>
+            <p class="mb-0">"The portrait Fatema made for my parents' anniversary brought tears to their eyes. The
+              attention to detail is incredible!"</p>
+            <div class="mt-3 text-story-gold">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card animate-fade-in-up" style="animation-delay: 0.2s">
+            <div class="d-flex align-items-center mb-4">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                alt="Client" class="testimonial-avatar me-3">
+              <div>
+                <h5 class="mb-0">Rahul Mehta</h5>
+                <p class="small text-muted mb-0">Delhi</p>
+              </div>
+            </div>
+            <p class="mb-0">"Ordered a custom scrapbook for my wife's birthday. She absolutely loved it! Fatema captured
+              our memories perfectly."</p>
+            <div class="mt-3 text-story-gold">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card animate-fade-in-up" style="animation-delay: 0.3s">
+            <div class="d-flex align-items-center mb-4">
+              <img
+                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                alt="Client" class="testimonial-avatar me-3">
+              <div>
+                <h5 class="mb-0">Anjali Patel</h5>
+                <p class="small text-muted mb-0">Vadodara</p>
+              </div>
+            </div>
+            <p class="mb-0">"The glass box letter was the most thoughtful gift I've ever received. Every element was so
+              carefully chosen and arranged."</p>
+            <div class="mt-3 text-story-gold">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white" id="creations">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+          <h6 class="text-story-pink text-uppercase mb-3">New Launch</h6>
+          <h2 class="display-4 mb-4">What I <span class="text-gradient">Create</span></h2>
+          <p class="lead mb-5">Each creation is unique, personalized, and made with meticulous attention to detail.</p>
+        </div>
+      </div>
+
+      <div class="row align-items-center">
+        <div class="col-lg-5 mb-5 mb-lg-0">
+          <div class="pe-lg-4">
+            <span
+              class="badge bg-story-pink text-white px-3 py-2 rounded-pill mb-4 font-serif fst-italic"
+              style="font-size: 0.9rem">My New Obsession ✨</span>
+
+            <h3 class="display-6 mb-3 font-serif fw-bold">Glass Box Letters</h3>
+            <p class="lead text-dark mb-4 fst-italic">"Such a wholesome hamper ❤️"</p>
+
+            <p class="text-muted mb-4">
+              A perfectly curated gift hamper for your special someone. This vintage-inspired glass box is filled with
+              handcrafted memories and sweet treats to light up their day. Each element is carefully selected to tell
+              your unique story.
+            </p>
+
+            <ul class="list-unstyled mb-5">
+              <li class="mb-3 d-flex align-items-center text-muted">
+                <i class="fas fa-heart text-story-rose me-3 fa-lg"></i> Handwritten Love Letter
+              </li>
+              <li class="mb-3 d-flex align-items-center text-muted">
+                <i class="fas fa-camera text-story-rose me-3 fa-lg"></i> Polaroids & Memories
+              </li>
+              <li class="mb-3 d-flex align-items-center text-muted">
+                <i class="fas fa-cookie-bite text-story-rose me-3 fa-lg"></i> Premium Chocolates
+              </li>
+              <li class="mb-3 d-flex align-items-center text-muted">
+                <i class="fas fa-lightbulb text-story-rose me-3 fa-lg"></i> Warm Fairy Lights
+              </li>
+              <li class="mb-3 d-flex align-items-center text-muted">
+                <i class="fas fa-pen-nib text-story-rose me-3 fa-lg"></i> Custom Calligraphy Art
+              </li>
+            </ul>
+
+            <a href="https://instagram.com/fab_creates_" target="_blank" class="btn btn-story btn-lg px-5 shadow-sm">
+              <i class="fab fa-instagram me-2"></i> DM to enquire 💌
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="position-relative overflow-hidden rounded-4 shadow-sm gallery-item animate-fade-in-up" style="height: 300px; animation-delay: 0.1s">
+                <img src="img/hamper-1.jpg"
+                  onerror="this.src='https://images.unsplash.com/photo-1549465220-1a8b9238cd48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'"
+                  alt="Glass Box Detail" class="w-100 h-100" style="object-fit: cover;">
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="position-relative overflow-hidden rounded-4 shadow-sm gallery-item animate-fade-in-up" style="height: 300px; animation-delay: 0.2s">
+                <img src="img/hamper-2.jpg"
+                  onerror="this.src='https://images.unsplash.com/photo-1513885535751-8b9238bd345a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'"
+                  alt="Polaroids" class="w-100 h-100" style="object-fit: cover;">
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="position-relative overflow-hidden rounded-4 shadow-sm gallery-item animate-fade-in-up" style="height: 300px; animation-delay: 0.3s">
+                <img src="img/hamper-3.jpg"
+                  onerror="this.src='https://images.unsplash.com/photo-1621877622955-46f905589c31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'"
+                  alt="Chocolates" class="w-100 h-100" style="object-fit: cover;">
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="position-relative overflow-hidden rounded-4 shadow-sm gallery-item animate-fade-in-up" style="height: 300px; animation-delay: 0.4s">
+                <img src="img/hamper-4.jpg"
+                  onerror="this.src='https://images.unsplash.com/photo-1516961642265-531546e84af2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'"
+                  alt="Full Hamper" class="w-100 h-100" style="object-fit: cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white" id="gallery">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-10 mx-auto text-center">
+          <h6 class="text-story-pink text-uppercase mb-3">
+            Artist's Gallery
+          </h6>
+          <h2 class="display-4 mb-3">
+            A Few of My <span class="text-gradient">Favorite Portraits</span>
+          </h2>
+          <p class="lead font-serif fst-italic text-story-gold mb-5">
+            Each portrait tells a unique story. Which one speaks to you? 👇
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="gallery-item animate-fade-in-up" style="animation-delay: 0.1s">
+            <img src="img/portrait-1.jpg" alt="Canvas Portrait 1" onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1578301978693-85ea9ce2a244?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
+                " />
+            <div
+              class="position-absolute bottom-0 start-0 w-100 p-3 bg-gradient-to-t from-black/70 to-transparent text-white">
+              <h6 class="mb-0">Family Portrait</h6>
+              <p class="small mb-0">Acrylic on Canvas</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="gallery-item animate-fade-in-up" style="animation-delay: 0.2s">
+            <img src="img/portrait-2.jpg" alt="Canvas Portrait 2" onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1579783901586-d88db74b4fe4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1448&q=80'
+                " />
+            <div
+              class="position-absolute bottom-0 start-0 w-100 p-3 bg-gradient-to-t from-black/70 to-transparent text-white">
+              <h6 class="mb-0">Bride Portrait</h6>
+              <p class="small mb-0">Watercolor & Ink</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="gallery-item animate-fade-in-up" style="animation-delay: 0.3s">
+            <img src="img/portrait-3.jpg" alt="Canvas Portrait 3" onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1582201943021-e8e6444112ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                " />
+            <div
+              class="position-absolute bottom-0 start-0 w-100 p-3 bg-gradient-to-t from-black/70 to-transparent text-white">
+              <h6 class="mb-0">Couple Portrait</h6>
+              <p class="small mb-0">Mixed Media</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="gallery-item animate-fade-in-up" style="animation-delay: 0.4s">
+            <img src="img/portrait-4.jpg" alt="Canvas Portrait 4" onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1549887552-93f27ea6b705?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
+                " />
+            <div
+              class="position-absolute bottom-0 start-0 w-100 p-3 bg-gradient-to-t from-black/70 to-transparent text-white">
+              <h6 class="mb-0">Pet Portrait</h6>
+              <p class="small mb-0">Oil Pastels</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="gallery-item animate-fade-in-up" style="animation-delay: 0.5s">
+            <img src="img/portrait-5.jpg" alt="Canvas Portrait 5" onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1578926314436-e8669f36f43a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2073&q=80'
+                " />
+            <div
+              class="position-absolute bottom-0 start-0 w-100 p-3 bg-gradient-to-t from-black/70 to-transparent text-white">
+              <h6 class="mb-0">Child Portrait</h6>
+              <p class="small mb-0">Colored Pencils</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="gallery-item animate-fade-in-up" style="animation-delay: 0.6s">
+            <img src="img/portrait-6.jpg" alt="Canvas Portrait 6" onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1579541814924-49fef17c5be5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
+                " />
+            <div
+              class="position-absolute bottom-0 start-0 w-100 p-3 bg-gradient-to-t from-black/70 to-transparent text-white">
+              <h6 class="mb-0">Abstract Portrait</h6>
+              <p class="small mb-0">Digital & Traditional</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <a href="https://instagram.com/fab_creates_" target="_blank" class="btn btn-story btn-lg px-5 py-3"
+          style="letter-spacing: 1px"><i class="fab fa-instagram me-2"></i> See More on Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact" style="background-color: #fff5eb">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-5 mb-5 mb-lg-0">
+          <h6 class="text-story-pink text-uppercase mb-3">Get in Touch</h6>
+          <h2 class="display-4 mb-4">
+            Let's Create<br />Something <span class="text-gradient">Beautiful</span>.
+          </h2>
+          <p class="lead mb-5">
+            Based in Vadodara. Delivering smiles across India. Ready to bring your vision to life.
+          </p>
+
+          <div class="d-flex align-items-center mb-4">
+            <div
+              class="icon-circle bg-white text-story-pink shadow-sm rounded-circle p-3 me-3"
+              style="
+                  width: 50px;
+                  height: 50px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                ">
+              <i class="fab fa-instagram fa-lg"></i>
+            </div>
+            <div>
+              <h6 class="text-uppercase fw-bold mb-0">Instagram</h6>
+              <a href="https://instagram.com/fab_creates_" target="_blank"
+                class="text-muted text-decoration-none">@fab_creates_</a>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center mb-4">
+            <div class="icon-circle bg-white text-story-pink shadow-sm rounded-circle p-3 me-3" style="
+                  width: 50px;
+                  height: 50px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                ">
+              <i class="fab fa-whatsapp fa-lg"></i>
+            </div>
+            <div>
+              <h6 class="text-uppercase fw-bold mb-0">WhatsApp</h6>
+              <a href="https://wa.me/917225012859" target="_blank" class="text-muted text-decoration-none">+91
+                7225012859</a>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <div class="icon-circle bg-white text-story-pink shadow-sm rounded-circle p-3 me-3" style="
+                  width: 50px;
+                  height: 50px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                ">
+              <i class="fas fa-map-marker-alt fa-lg"></i>
+            </div>
+            <div>
+              <h6 class="text-uppercase fw-bold mb-0">Location</h6>
+              <span class="text-muted">Vadodara, India (Delivery Pan India)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 offset-lg-1">
+          <form id="contactForm" class="bg-white p-5 rounded-4 shadow-lg position-relative overflow-hidden animate-fade-in-up">
+            <div class="position-absolute top-0 end-0 bg-story-pink opacity-10 rounded-circle" style="
+                  width: 150px;
+                  height: 150px;
+                  transform: translate(30%, -30%);
+                "></div>
+
+            <h4 class="mb-4 font-serif">Tell me about your idea...</h4>
+
+            <div class="row g-4">
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="name" placeholder="Name" required />
+                  <label for="name">Your Name</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="tel" class="form-control" id="phone" placeholder="Phone" required />
+                  <label for="phone">Phone Number</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-floating">
+                  <select class="form-select" id="service" required>
+                    <option value="" selected disabled>
+                      I am interested in...
+                    </option>
+                    <option value="portrait">Portrait Illustration</option>
+                    <option value="glass-box">Glass Box Letter</option>
+                    <option value="calligraphy">Calligraphy</option>
+                    <option value="scrapbook">Memory Scrapbook</option>
+                    <option value="other">Other Art Work</option>
+                  </select>
+                  <label for="service">Service</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-floating">
+                  <textarea class="form-control" id="message" placeholder="Message" style="height: 120px"
+                    required></textarea>
+                  <label for="message">Tell me about your idea...</label>
+                </div>
+              </div>
+              <div class="col-12 pt-3">
+                <button type="submit" class="btn btn-story w-100 py-3">
+                  Send via WhatsApp <i class="fab fa-whatsapp ms-2"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-white py-5 border-top">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          <span class="font-serif fs-3 fw-bold text-dark">Fab<span class="text-story-gold">Creates_</span></span>
+          <p class="small text-muted mt-2 mb-0">Fatema Abedin | Handcrafted Art from Vadodara</p>
+          <p class="small text-muted mb-0">Delivery Pan India | All artworks are 100% handmade</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <a href="https://instagram.com/fab_creates_" target="_blank" class="text-dark text-decoration-none me-4"><i
+              class="fab fa-instagram fa-lg"></i></a>
+          <a href="https://wa.me/917225012859" target="_blank" class="text-dark text-decoration-none me-4"><i
+              class="fab fa-whatsapp fa-lg"></i></a>
+          <a href="tel:7225012859" class="text-dark text-decoration-none"><i class="fas fa-phone fa-lg"></i></a>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-12 text-center">
+          <p class="small text-muted mb-0">© 2023 Fab Creates. All rights reserved. | Crafted with ❤️ in Vadodara</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Hide loader
+      setTimeout(() => {
+        document.querySelector('.loader').classList.add('hidden');
+      }, 1000);
+
+      // Navbar scroll effect
+      const nav = document.getElementById("mainNav");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+
+      // Form submission to WhatsApp
+      document.getElementById("contactForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const name = document.getElementById("name").value;
+        const phone = document.getElementById("phone").value;
+        const service = document.getElementById("service").value;
+        const message = document.getElementById("message").value;
+
+        const whatsappMsg = `Hi Fatema! I'm ${name}. My phone number is ${phone}. I'm interested in ${service}. Here's what I have in mind: ${message}`;
+        const whatsappUrl = `https://wa.me/917225012859?text=${encodeURIComponent(whatsappMsg)}`;
+
+        window.open(whatsappUrl, "_blank");
+
+        // Add feedback animation
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-check me-2"></i> Sent Successfully!';
+        submitBtn.style.background = "linear-gradient(135deg, #4CAF50 0%, #45a049 100%)";
+
+        setTimeout(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.style.background = "";
+        }, 3000);
+      });
+
+      // Explore button
+      document.querySelector(".explore-btn").addEventListener("click", function () {
+        document.getElementById("creations").scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+
+      // Smooth scroll for nav links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ 
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Animate stats counting on scroll
+      const statNumbers = document.querySelectorAll('.stat-number');
+      const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const statNumber = entry.target;
+            const targetCount = parseInt(statNumber.getAttribute('data-count'));
+            const suffix = targetCount === 100 ? '%' : '+';
+            
+            let currentCount = 0;
+            const increment = targetCount / 50; // Animate over 50 frames
+            
+            const timer = setInterval(() => {
+              currentCount += increment;
+              if (currentCount >= targetCount) {
+                currentCount = targetCount;
+                clearInterval(timer);
+              }
+              statNumber.textContent = Math.floor(currentCount) + suffix;
+            }, 20);
+            
+            observer.unobserve(statNumber);
+          }
+        });
+      }, observerOptions);
+
+      statNumbers.forEach(statNumber => {
+        observer.observe(statNumber);
+      });
+    });
+  </script>
+</body>
+
+</html>
